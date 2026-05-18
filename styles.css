@@ -1,0 +1,231 @@
+/* ===================================================================
+   Econopyme · Imán Radiografía · Estilos base
+   Paleta extraída del mockup oficial de econopyme.com
+   =================================================================== */
+
+:root {
+  /* ---------- Paleta (marca Econopyme) ---------- */
+  --eco-ink:              #0A0A0A;   /* texto principal, CTAs */
+  --eco-white:            #FFFFFF;
+
+  --eco-text-subtle:      #6B6B6B;   /* texto secundario, microcopy */
+  --eco-text-eyebrow:     #7A8FB8;   /* eyebrow "TU COPILOTO DE IA..." */
+  --eco-text-display-soft:#6B7B97;   /* subhead grande tipo "Econopyme resuelve" */
+  --eco-text-italic-muted:#B0B0B0;   /* itálicas decorativas muted ("resuelvo", "nos eligen") */
+
+  --eco-bg-soft:          #F4F6F8;   /* fondo del form */
+  --eco-card-bg:          #F2F2F2;   /* cards */
+  --eco-bg-gray:          #E9E9E9;   /* fondo del header de econopyme.com */
+  --eco-border:           #E4E7EC;
+
+  --eco-accent-green:     #7BC242;   /* verde lima del logo */
+  --eco-accent-green-deep:#0E8E5C;   /* verde esmeralda del dashboard radiografía */
+
+  /* ---------- Tipografía (Inter por defecto del sitio Figma) ---------- */
+  --eco-font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* ---------- Escala de espaciado ---------- */
+  --eco-space-1: 4px;
+  --eco-space-2: 8px;
+  --eco-space-3: 12px;
+  --eco-space-4: 16px;
+  --eco-space-5: 24px;
+  --eco-space-6: 32px;
+  --eco-space-7: 48px;
+  --eco-space-8: 64px;
+
+  /* ---------- Radios ---------- */
+  --eco-radius-sm: 8px;
+  --eco-radius-md: 12px;
+  --eco-radius-lg: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--eco-font-sans);
+  color: var(--eco-ink);
+  background: var(--eco-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===================================================================
+   Bloque imán
+   =================================================================== */
+
+.iman-radiografia {
+  padding: var(--eco-space-7) var(--eco-space-4);
+  background: var(--eco-white);
+}
+
+.iman-container {
+  max-width: 560px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--eco-space-5);
+}
+
+/* ---------- Eyebrow ---------- */
+.eyebrow {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--eco-text-eyebrow);
+}
+
+/* ---------- Headline ---------- */
+.headline {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--eco-ink);
+}
+
+/* En el sistema visual de Econopyme, la itálica es énfasis en MISMO color
+   del headline (no acento de marca). Patrón consistente con "simple",
+   "decisiones reales", "final" del home. */
+.headline em {
+  font-style: italic;
+  font-weight: 700;
+  color: inherit;
+}
+
+/* ---------- Subhead ---------- */
+.subhead {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--eco-text-subtle);
+  margin: 0;
+}
+
+/* ===================================================================
+   Form
+   =================================================================== */
+
+.iman-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eco-space-4);
+  background: var(--eco-bg-soft);
+  padding: var(--eco-space-5);
+  border-radius: var(--eco-radius-lg);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--eco-space-2);
+}
+
+.iman-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--eco-ink);
+}
+
+.iman-input {
+  font-family: inherit;
+  font-size: 15px;
+  padding: 14px 16px;
+  border: 1px solid var(--eco-border);
+  border-radius: var(--eco-radius-sm);
+  background: var(--eco-white);
+  color: var(--eco-ink);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.iman-input::placeholder {
+  color: #A0A0A0;
+}
+
+.iman-input:focus {
+  outline: none;
+  border-color: var(--eco-ink);
+  box-shadow: 0 0 0 3px rgba(10, 10, 10, 0.08);
+}
+
+.field-hint {
+  font-size: 12px;
+  color: var(--eco-text-subtle);
+  font-style: italic;
+}
+
+/* ---------- CTA ---------- */
+.iman-cta {
+  margin-top: var(--eco-space-2);
+  width: 100%;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--eco-white);
+  background: var(--eco-ink);
+  border: none;
+  padding: 16px 24px;
+  border-radius: var(--eco-radius-sm);
+  cursor: pointer;
+  transition: transform 120ms ease, opacity 120ms ease, background 120ms ease;
+}
+
+.iman-cta:hover {
+  opacity: 0.92;
+}
+
+.iman-cta:active {
+  transform: translateY(1px);
+}
+
+.iman-cta:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(123, 194, 66, 0.25), 0 0 0 5px var(--eco-accent-green);
+}
+
+/* ---------- Microcopy ---------- */
+.microcopy {
+  font-size: 13px;
+  text-align: center;
+  color: var(--eco-text-subtle);
+  margin: var(--eco-space-1) 0 0;
+}
+
+/* ===================================================================
+   Trust strip
+   =================================================================== */
+.trust-strip {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--eco-text-subtle);
+  text-align: center;
+  padding-top: var(--eco-space-4);
+  border-top: 1px solid var(--eco-border);
+}
+
+/* ===================================================================
+   Desktop
+   =================================================================== */
+@media (min-width: 768px) {
+  .iman-radiografia {
+    padding: var(--eco-space-8) var(--eco-space-5);
+  }
+
+  .iman-container {
+    max-width: 640px;
+  }
+
+  .headline {
+    font-size: 40px;
+  }
+
+  .subhead {
+    font-size: 17px;
+  }
+}
