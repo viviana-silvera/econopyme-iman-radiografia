@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es-AR">
 <head>
   <meta charset="UTF-8">
@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260520-1">
 </head>
 <body>
 
@@ -22,7 +22,10 @@
 <section class="iman-radiografia" aria-labelledby="iman-headline">
   <div class="iman-container">
 
-    <span class="eyebrow">Radiografía del sector · gratis · al instante</span>
+    <div class="eyebrow-track" aria-label="Radiografía del sector · gratis · al instante">
+      <span class="eyebrow">Radiografía del sector · gratis · al instante</span>
+      <span class="eyebrow" aria-hidden="true">Radiografía del sector · gratis · al instante</span>
+    </div>
 
     <h2 class="headline" id="iman-headline">
       ¿Cómo le va a tu <em>sector</em> este trimestre?
@@ -33,65 +36,15 @@
     </p>
 
     <!-- ================================================================ -->
-    <!-- SLOT FORM — reemplazar este <form> por el snippet de DonWeb       -->
-    <!--                                                                   -->
-    <!-- Requisitos del form de DonWeb:                                    -->
-    <!--   · Captura 3 campos: nombre, email, actividad                    -->
-    <!--   · Envía los datos a EnviaLoSimple                               -->
-    <!--   · Al hacer submit, redirige a /radiografia (Opción A — ver       -->
-    <!--     README) pasando los campos como query params.                 -->
-    <!--                                                                   -->
-    <!-- Mantener las clases CSS (.iman-form, .iman-input, .iman-cta) para -->
-    <!-- conservar el estilo de marca.                                     -->
+    <!-- SLOT FORM REAL — EnviaLoSimple                                  -->
+    <!-- Widget provisto por EnviaLoSimple para capturar nombre + email.   -->
+    <!-- La actividad/rubro se pide en el chat después de la redirección.  -->
+    <!-- Verificar en el panel: lista destino y redirección a /radiografia.-->
     <!-- ================================================================ -->
-    <form class="iman-form" id="iman-form-placeholder" action="/radiografia" method="get" novalidate>
-
-      <div class="field">
-        <label class="iman-label" for="iman-nombre">Tu nombre</label>
-        <input
-          class="iman-input"
-          type="text"
-          id="iman-nombre"
-          name="nombre"
-          placeholder="Para saludarte bien"
-          autocomplete="given-name"
-          required>
-      </div>
-
-      <div class="field">
-        <label class="iman-label" for="iman-email">Tu email</label>
-        <input
-          class="iman-input"
-          type="email"
-          id="iman-email"
-          name="email"
-          placeholder="Ahí te seguimos mandando datos del sector"
-          autocomplete="email"
-          required>
-      </div>
-
-      <div class="field">
-        <label class="iman-label" for="iman-actividad">¿A qué te dedicás?</label>
-        <input
-          class="iman-input"
-          type="text"
-          id="iman-actividad"
-          name="actividad"
-          placeholder="Ej: fábrica de embalajes, restaurante, indumentaria"
-          required>
-        <span class="field-hint">El chat de Econopyme lo va a interpretar y armar tu radiografía.</span>
-      </div>
-
-      <button
-        class="iman-cta"
-        type="submit"
-        data-action="open-radiografia-chat">
-        Ver mi radiografía →
-      </button>
-
+    <div class="iman-form iman-form-widget" id="iman-form-envialosimple">
+      <script type="text/javascript" src="https://v3.envialosimple.com/form/renderwidget/format/widget/AdministratorID/202168/FormID/1/Lang/es"></script>
       <p class="microcopy">Sin tarjeta. Sin prueba gratuita. Sin letra chica.</p>
-
-    </form>
+    </div>
     <!-- ====================== FIN SLOT FORM ====================== -->
 
     <div class="trust-strip">

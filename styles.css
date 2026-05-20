@@ -1,4 +1,4 @@
-/* ===================================================================
+﻿/* ===================================================================
    Econopyme · Imán Radiografía · Estilos base
    Paleta extraída del mockup oficial de econopyme.com
    =================================================================== */
@@ -60,6 +60,7 @@ body {
 .iman-radiografia {
   padding: var(--eco-space-7) var(--eco-space-4);
   background: var(--eco-white);
+  overflow: hidden;
 }
 
 .iman-container {
@@ -68,15 +69,28 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--eco-space-5);
+  animation: iman-enter 520ms ease-out both;
 }
 
 /* ---------- Eyebrow ---------- */
+.eyebrow-track {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  gap: var(--eco-space-5);
+  white-space: nowrap;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
 .eyebrow {
+  flex: 0 0 auto;
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: var(--eco-text-eyebrow);
+  animation: eyebrow-marquee 9000ms linear infinite;
 }
 
 /* ---------- Headline ---------- */
@@ -84,7 +98,7 @@ body {
   font-size: 32px;
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   margin: 0;
   color: var(--eco-ink);
 }
@@ -165,7 +179,7 @@ body {
   font-family: inherit;
   font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: var(--eco-white);
   background: var(--eco-ink);
@@ -202,7 +216,7 @@ body {
    =================================================================== */
 .trust-strip {
   font-size: 12px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
   color: var(--eco-text-subtle);
   text-align: center;
   padding-top: var(--eco-space-4);
@@ -210,8 +224,168 @@ body {
 }
 
 /* ===================================================================
-   Desktop
+   EnviaLoSimple widget overrides
+   Mantiene el widget real dentro del sistema visual de Econopyme.
    =================================================================== */
+
+.iman-form-widget {
+  display: block;
+}
+
+.iman-form-widget [id^="subscription-"] {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  font-family: var(--eco-font-sans) !important;
+}
+
+.iman-form-widget [id^="subscription-"] form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--eco-space-2) !important;
+}
+
+.iman-form-widget [id^="subscription-"] p,
+.iman-form-widget [id^="subscription-"] .subscription-form-label {
+  font-family: var(--eco-font-sans) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--eco-ink) !important;
+}
+
+.iman-form-widget [id^="subscription-"] .subscription-form-text {
+  width: 100% !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  margin: 8px 0 12px !important;
+  padding: 0 16px !important;
+  border: 1px solid var(--eco-border) !important;
+  border-radius: var(--eco-radius-sm) !important;
+  background: var(--eco-white) !important;
+  color: var(--eco-ink) !important;
+  font-family: var(--eco-font-sans) !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+}
+
+.iman-form-widget [id^="subscription-"] .subscription-form-text:focus {
+  outline: none !important;
+  border-color: var(--eco-ink) !important;
+  box-shadow: 0 0 0 3px rgba(10, 10, 10, 0.08) !important;
+}
+
+.iman-form-widget [id^="subscription-"] .subscription-form-placeholder {
+  top: 8px !important;
+  padding: 0 16px !important;
+  color: #A0A0A0 !important;
+  font-family: var(--eco-font-sans) !important;
+  font-size: 15px !important;
+  line-height: 48px !important;
+}
+
+.iman-form-widget [id^="subscription-"] input[type="submit"].submit-button {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: var(--eco-space-2) 0 0 !important;
+  padding: 16px 24px !important;
+  border: 0 !important;
+  border-radius: var(--eco-radius-sm) !important;
+  background: var(--eco-ink) !important;
+  color: var(--eco-white) !important;
+  font-family: var(--eco-font-sans) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+}
+
+.iman-form-widget [id^="subscription-"] .subscription-form-captcha {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: var(--eco-space-2) !important;
+}
+
+.iman-form-widget [id^="subscription-"] .subscription-form-captcha img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.iman-form-widget [id^="subscription-"] .subscription-form-captcha a {
+  color: var(--eco-accent-green-deep) !important;
+  font-family: var(--eco-font-sans) !important;
+}
+
+.iman-form-widget [id^="subscription-"] .subscription-form-feedback h1,
+.iman-form-widget [id^="subscription-"] .subscription-form-feedback p {
+  font-family: var(--eco-font-sans) !important;
+}
+
+/* ===================================================================
+   Motion
+   =================================================================== */
+@keyframes iman-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes eyebrow-marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-100% - var(--eco-space-5)));
+  }
+}
+
+/* ===================================================================
+   Responsive
+   =================================================================== */
+@media (max-width: 480px) {
+  .iman-radiografia {
+    padding: var(--eco-space-6) var(--eco-space-4);
+  }
+
+  .iman-container {
+    gap: var(--eco-space-4);
+  }
+
+  .headline {
+    font-size: 30px;
+  }
+
+  .subhead {
+    font-size: 15px;
+  }
+
+  .iman-form {
+    padding: var(--eco-space-4);
+    border-radius: var(--eco-radius-md);
+  }
+
+  .iman-form-widget [id^="subscription-"] .subscription-form-captcha {
+    grid-template-columns: 1fr !important;
+  }
+
+  .iman-form-widget [id^="subscription-"] .subscription-form-captcha a {
+    margin: 6px 0 8px !important;
+  }
+}
+
 @media (min-width: 768px) {
   .iman-radiografia {
     padding: var(--eco-space-8) var(--eco-space-5);
@@ -227,5 +401,13 @@ body {
 
   .subhead {
     font-size: 17px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iman-container,
+  .eyebrow {
+    animation: none;
   }
 }
